@@ -2,10 +2,10 @@
  * Created by tom on 10/31/13.
  */
 
-var assert = require('assert');
+var should = require('should');
 
 describe('Mocha', function(){
     it('should pass this test', function(){
-        assert.ok(true);
+        true.should.be.true;
     });
 });

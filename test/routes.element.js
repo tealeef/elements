@@ -2,8 +2,8 @@
  * Created by tom on 10/31/13.
  */
 
-var assert = require('assert');
 var request = require('supertest');
+var should = require('should');
 
 var host = 'localhost:3000';
 
@@ -16,7 +16,10 @@ describe('/element/:id', function(){
             .end(function(err, res) {
                 if (err) return done(err);
 
-                assert.equal(res.text, 'element 123');
+                should.exist(res);
+                res.should.have.property('text');
+                res.text.should.equal('element 123');
+
                 done();
             });
     });
@@ -28,7 +31,10 @@ describe('/element/:id', function(){
             .end(function(err, res) {
                 if (err) return done(err);
 
-                assert.equal(res.text, 'element 987');
+                should.exist(res);
+                res.should.have.property('text');
+                res.text.should.equal('element 987');
+
                 done();
             });
     });
